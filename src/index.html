@@ -3,5 +3,17 @@ title: "Diegomev's Blog"
 layout: "base.html"
 ---
 
-<div>test</div>
-<h2>testando</h2>
+<div>Hello from the index page!</div>
+
+<div>Pages</div>
+
+<ul>
+  {%- for page in collections.pages -%}
+  <li><a href="{{ page.url }}">{{ page.data.title }}</a></li>
+  <div>{{ page.content }}</div>
+  {%- endfor -%}
+</ul>
+
+<button onclick="logLearning()">Button</button>
+
+<script src="js/learning.js" />
