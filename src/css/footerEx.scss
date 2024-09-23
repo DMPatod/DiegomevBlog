@@ -1,7 +1,0 @@
-@use "sass:color";
-
-$variable-color: #333;
-
-.sassFooter {
-  background-color: color.scale($variable-color, $lightness: 20%);
-}

@@ -24,15 +24,18 @@ body {
   padding: 80px;
   transition: all ease-out 0.35s;
   transform-origin: 50% 50%;
-}
-.container:hover {
-  transform: scale(1.11);
-}
-.container:hover .circle {
-  transform-origin: 50% 50%;
-}
-.container:hover .shadow {
-  box-shadow: 0px 16px 56px #888888;
+
+  &:hover {
+    transform: scale(1.11);
+
+    .circle {
+      transform-origin: 50% 50%;
+    }
+
+    .shadow {
+      box-shadow: 0px 16px 56px #888888;
+    }
+  }
 }
 
 .circle {
@@ -42,7 +45,7 @@ body {
   z-index: 10;
   overflow: hidden;
   border-radius: 100%;
-  transition: all ease-out 0.4s;
+  transition: all ease-out 0.4s;  
 }
 
 .shadow {
