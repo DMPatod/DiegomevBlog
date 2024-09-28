@@ -1,4 +1,5 @@
 const sass = require("sass");
+const path = require("node:path");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addTemplateFormats("scss");
@@ -6,8 +7,15 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addExtension("scss", {
     outputFileExtension: "css",
 
-    compile: async function (inputContent) {
-      let result = await sass.compileStringAsync(inputContent);
+    compile: async function (inputContent, inputPath) {
+      let parsed = path.parse(inputPath);
+
+      let result = await sass.compileStringAsync(inputContent, {
+        loadPaths: [
+          parsed.dir || ".",
+          this.config.dir.includes
+        ]
+      });
 
       return async (data) => {
         return result.css;
