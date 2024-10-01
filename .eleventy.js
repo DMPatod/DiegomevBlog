@@ -9,12 +9,12 @@ module.exports = function (eleventyConfig) {
 
     compile: async function (inputContent, inputPath) {
       let parsed = path.parse(inputPath);
+      if (parsed.name.startsWith("_")) {
+        return;
+      }
 
       let result = await sass.compileStringAsync(inputContent, {
-        loadPaths: [
-          parsed.dir || ".",
-          this.config.dir.includes
-        ]
+        loadPaths: [parsed.dir || ".", this.config.dir.includes],
       });
 
       return async (data) => {
