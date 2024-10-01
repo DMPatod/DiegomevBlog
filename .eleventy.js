@@ -17,7 +17,9 @@ module.exports = function (eleventyConfig) {
         loadPaths: [parsed.dir || ".", this.config.dir.includes],
       });
 
-      return async (data) => {
+      this.addDependencies(inputPath, result.loadedUrls);
+
+      return async (_) => {
         return result.css;
       };
     },
