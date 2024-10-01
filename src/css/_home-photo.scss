@@ -1,0 +1,17 @@
+
+.home-photo {
+    width: 100%;
+    min-height: 100dvh;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 10vw;
+    box-sizing: border-box;
+    position: relative;
+
+    img {
+      max-width: 100%;
+      display: block;
+      margin: auto;
+    }
+  }
