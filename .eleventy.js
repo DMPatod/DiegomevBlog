@@ -2,6 +2,10 @@ const sass = require("sass");
 const path = require("node:path");
 
 module.exports = function (eleventyConfig) {
+  eleventyConfig.setChokidarConfig({
+    usePolling: true,
+  });
+
   eleventyConfig.addTemplateFormats("scss");
 
   eleventyConfig.addExtension("scss", {
